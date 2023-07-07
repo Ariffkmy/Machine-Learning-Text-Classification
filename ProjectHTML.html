@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>ARIFF HAKIMI - FYP 24480</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+
+.card {
+  box-shadow: 0 3px 10px 0 rgba(0,0,0,0.2);
+  transition: 0.6s;
+  width: 37%;
+  border-radius: 40px;
+ margin: 0 auto;
+  background-color: white;
+
+}
+
+body {
+  background-image: url('bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+background-opacity: 80%;
+}
+
+h1 {
+  text-shadow: 2px 2px 5px #000000;
+}
+
+p {
+  text-shadow: 2px 2px 3px #000000;
+}
+</style>
+<script>
+
+    function start_search()
+	{
+	
+	var name=$('#name').val();
+        var studentid=$('#studentid').val();
+        var email=$('#email').val();
+        var ptitle=$('#ptitle').val();
+        var feedback=$('#feedback').val();
+	
+	
+	$.ajax({
+    url: "http://localhost:5000/Arifh/inner/",
+    type: "POST",
+    dataType: "json",
+  contentType: "application/json",
+    data:  JSON.stringify({
+	
+    "name":name,
+    "studentid":studentid,
+    "email":email,
+    "ptitle":ptitle,
+    "feedback":feedback
+
+    }),
+    dataType: "json",
+    success: function(data) {
+        Main_data=data;
+        alert(data);
+        console.log(data);
+		
+        },
+        error: function(e) {
+            console.log(e);
+          },
+    });
+	
+	
+	}
+	
+    
+</script>
+
+<body>
+
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-blue w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="https://app.powerbi.com/groups/me/reports/5bbf39b5-1f64-4789-8973-c851e03ccf1a/ReportSectionba61974415438bad8ecb" class="w3-bar-item w3-button w3-padding-large w3-hide-small">DASHBOARD</a>
+
+   
+  </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+ 
+
+  <!-- The Band Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+   <b><h1 class="w3-wide" style="color:white;font-size:50px;">MPU4 FEEDBACK FORM</h1></b>
+   
+    <p class="w3-justify" style="color:white;font-size:18px;">This feedback form need to be filled by the students for MPU4 evaluation, assesment and improvement. Your feedback is very important for the MPU4 Committee.</p>
+   
+   
+   
+   
+   
+   
+   
+   
+  </div>
+
+<div class="card">
+  <!-- The Contact Section -->
+  <div class="w3-container w3-content w3-padding-64" style="max-width:500px" id="contact">
+ 
+  <h6 class="w3-center">Please insert all the following details and submit your feedback:</h6>
+    <div class="w3-wide w3-center">
+      <div class="w3-col m6 w3-large w3-margin-bottom">
+      
+      </div>
+      <div class="w3-wide">
+        
+          <div class="w3-row-padding" style="margin:0 -600px 20px -50px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" id="name" type="text" placeholder="Name" required name="Name">
+            </div>
+          </div>
+		   <div class="w3-row-padding" style="margin:0 -600px 20px -50px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" id="studentid" type="text" placeholder="Student ID" required name="Student ID">
+            </div>
+          </div>
+		  <div class="w3-row-padding" style="margin:0 -600px 20px -50px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" id="email" type="text" placeholder="Email" required name="Email">
+            </div>
+          </div>
+		   <div class="w3-row-padding" style="margin:0 -600px 20px -50px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" id="ptitle" type="text" placeholder="MPU4 Project Title" required name="MPU4 Project Title">
+            </div>
+          </div>
+         <div class="w3-row-padding" style="margin:0 -600px 20px -50px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" id="feedback" type="text" placeholder="Feedback" required name="Feedback">
+            </div>
+          </div>
+		  </br>
+		  </br>
+		
+          <button class="w3-button w3-green w3-section w3-center" onclick="start_search()" >Submit Feedback</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Page Content -->
+</div>
+</br>
+</br>
+</br>
+</br>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  
+</footer>
+
+<!--<form>
+<input type="text" placeholder="user-name" /><br>
+<input type=submit value="submit" id="submit" /> <br>
+</form>-->
+
+<script>
+$(window).load(function() {
+$('form').children('input:not(#submit)').val('')
+});
+
+</script>
+
+</body>
+
+</html>
